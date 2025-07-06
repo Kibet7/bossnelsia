@@ -120,7 +120,6 @@
             to { transform: translateY(-50%) rotate(360deg) translateX(20px) rotate(-360deg); }
         }
         
-        /* Rest of your existing CSS remains the same */
         .payment-info {
             margin-bottom: 25px;
             font-size: 18px;
@@ -151,6 +150,9 @@
             color: white;
             position: relative;
             overflow: hidden;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         
         .package-btn:hover {
@@ -178,26 +180,38 @@
             left: 100%;
         }
         
-        .inquiry {
+        .whatsapp-support {
             margin-top: 25px;
-            font-size: 16px;
-            color: #444;
-            background: var(--light);
             padding: 15px;
             border-radius: 10px;
+            background: var(--light);
             box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
         }
         
-        .email {
-            color: #007bff;
-            font-weight: bold;
+        .whatsapp-btn {
+            background: var(--secondary);
+            color: white;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 20px;
+            border-radius: 8px;
             text-decoration: none;
+            margin-top: 10px;
             transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+            width: 100%;
         }
         
-        .email:hover {
-            color: #0056b3;
-            text-decoration: underline;
+        .whatsapp-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(37, 211, 102, 0.4);
+            background: #1fbb56;
+        }
+        
+        .whatsapp-btn i {
+            margin-right: 8px;
+            font-size: 18px;
         }
         
         /* Modal styles */
@@ -364,31 +378,6 @@
             transform: translateY(1px);
         }
         
-        .whatsapp-btn {
-            background: var(--secondary);
-            color: white;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 10px 20px;
-            border-radius: 8px;
-            text-decoration: none;
-            margin-top: 15px;
-            transition: 0.3s;
-            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
-        }
-        
-        .whatsapp-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(37, 211, 102, 0.4);
-            background: #1fbb56;
-        }
-        
-        .whatsapp-btn i {
-            margin-right: 8px;
-            font-size: 18px;
-        }
-        
         /* Loading spinner styles */
         .loading-overlay {
             display: none;
@@ -518,11 +507,16 @@
             <button class="package-btn" onclick="showPaymentInstructions('30 Days - Unlimited (Ksh 99)')">
                 <span>30 Days - Unlimited</span>
                 <span>Ksh 99</span>
-            </button><div class="whatsapp-support">
-    Need help? <a href="https://wa.me/?text=Hi%2C%20I%20need%20help%20with%20Starnet" target="_blank" class="whatsapp-btn">
-        <i class="fab fa-whatsapp"></i> Contact us on WhatsApp
-    </a>
-</div>
+            </button>
+        </div>
+
+        <div class="whatsapp-support">
+            <p>Need help with your purchase?</p>
+            <a href="https://wa.me/?text=Hi%2C%20I%20need%20help%20with%20my%20Starnet%20purchase" target="_blank" class="whatsapp-btn">
+                <i class="fab fa-whatsapp"></i> WhatsApp Support
+            </a>
+        </div>
+    </div>
 
     <!-- Payment Instructions Modal -->
     <div id="paymentModal" class="modal">
