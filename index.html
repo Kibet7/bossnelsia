@@ -288,7 +288,7 @@
             border-radius: 50%;
         }
         
-        .till-container {
+        .phone-container {
             background: #f5f5f5;
             padding: 15px;
             border-radius: 10px;
@@ -297,13 +297,13 @@
             position: relative;
         }
         
-        .till-label {
+        .phone-label {
             font-size: 14px;
             color: #666;
             margin-bottom: 5px;
         }
         
-        .till-number {
+        .phone-number {
             font-size: 24px;
             font-weight: bold;
             color: var(--primary);
@@ -484,7 +484,7 @@
                 font-size: 15px;
             }
             
-            .till-number {
+            .phone-number {
                 font-size: 20px;
             }
         }
@@ -536,11 +536,11 @@
             <div class="instructions">
                 <h3>How to pay via M-Pesa</h3>
                 
-                <div class="till-container">
-                    <div class="till-label">M-Pesa Till Number:</div>
-                    <div class="till-number">
-                        <span id="tillNumber">3689878</span>
-                        <button class="copy-btn" onclick="copyTillNumber()">
+                <div class="phone-container">
+                    <div class="phone-label">M-Pesa Phone Number:</div>
+                    <div class="phone-number">
+                        <span id="phoneNumber">0106438381</span>
+                        <button class="copy-btn" onclick="copyPhoneNumber()">
                             <i class="far fa-copy"></i> Copy
                         </button>
                     </div>
@@ -548,9 +548,9 @@
                 
                 <ol>
                     <li>Go to <strong>M-Pesa</strong> on your phone</li>
-                    <li>Select <strong>Lipa na M-Pesa</strong></li>
-                    <li>Choose <strong>Buy Goods and Services</strong></li>
-                    <li>Enter Till Number: <strong>3689878</strong></li>
+                    <li>Select <strong>Send Money</strong></li>
+                    <li>Choose <strong>Enter Phone Number</strong></li>
+                    <li>Enter Phone Number: <strong>0106438381</strong></li>
                     <li>Input the exact amount for your package</li>
                     <li>Enter your <strong>M-Pesa PIN</strong></li>
                     <li>Confirm payment details and send</li>
@@ -578,7 +578,7 @@
     <!-- Toast notification -->
     <div id="toast" class="toast">
         <i class="fas fa-check-circle"></i>
-        <span>Till number copied to clipboard!</span>
+        <span>Phone number copied to clipboard!</span>
     </div>
 
     <script>
@@ -601,10 +601,10 @@
             document.getElementById('paymentModal').style.display = 'none';
         }
         
-        // Copy till number to clipboard
-        function copyTillNumber() {
-            const tillNumber = document.getElementById('tillNumber').textContent;
-            navigator.clipboard.writeText(tillNumber).then(() => {
+        // Copy phone number to clipboard
+        function copyPhoneNumber() {
+            const phoneNumber = document.getElementById('phoneNumber').textContent;
+            navigator.clipboard.writeText(phoneNumber).then(() => {
                 showToast();
             });
         }
