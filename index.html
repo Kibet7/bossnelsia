@@ -213,6 +213,8 @@
             align-items: center;
             justify-content: center;
             animation: fadeIn 0.3s;
+            overflow-y: auto;
+            padding: 20px;
         }
         
         @keyframes fadeIn {
@@ -222,7 +224,7 @@
         
         .modal-content {
             background-color: white;
-            padding: 30px;
+            padding: 25px;
             border-radius: 15px;
             max-width: 450px;
             width: 90%;
@@ -232,6 +234,8 @@
             transform: scale(0.9);
             opacity: 0;
             animation: modalOpen 0.3s forwards;
+            max-height: 90vh;
+            overflow-y: auto;
         }
         
         @keyframes modalOpen {
@@ -258,13 +262,14 @@
         
         .instructions {
             text-align: left;
-            margin: 20px 0;
+            margin: 15px 0;
         }
         
         .instructions h3 {
             color: var(--primary);
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             text-align: center;
+            font-size: 18px;
         }
         
         .instructions ol {
@@ -272,9 +277,10 @@
         }
         
         .instructions li {
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             position: relative;
             padding-left: 10px;
+            font-size: 14px;
         }
         
         .instructions li::before {
@@ -290,9 +296,9 @@
         
         .phone-container {
             background: #f5f5f5;
-            padding: 15px;
+            padding: 12px;
             border-radius: 10px;
-            margin: 20px 0;
+            margin: 15px 0;
             border-left: 4px solid var(--primary);
             position: relative;
         }
@@ -304,7 +310,7 @@
         }
         
         .phone-number {
-            font-size: 24px;
+            font-size: 22px;
             font-weight: bold;
             color: var(--primary);
             display: flex;
@@ -316,10 +322,10 @@
             background: var(--primary);
             color: white;
             border: none;
-            padding: 8px 12px;
+            padding: 6px 10px;
             border-radius: 6px;
             cursor: pointer;
-            font-size: 14px;
+            font-size: 13px;
             transition: 0.3s;
             display: flex;
             align-items: center;
@@ -336,23 +342,24 @@
         }
         
         .copy-btn i {
-            font-size: 16px;
+            font-size: 14px;
         }
         
         .proceed-btn {
             background: linear-gradient(to right, var(--primary), var(--primary-dark));
             color: white;
             border: none;
-            padding: 15px;
+            padding: 12px;
             border-radius: 8px;
             font-weight: bold;
             width: 100%;
-            margin-top: 20px;
+            margin-top: 15px;
             cursor: pointer;
             transition: 0.3s;
             box-shadow: 0 4px 10px rgba(20, 129, 34, 0.3);
             position: relative;
             overflow: hidden;
+            font-size: 14px;
         }
         
         .proceed-btn:hover {
@@ -389,99 +396,24 @@
             font-size: 18px;
         }
         
-        /* Loading spinner styles */
-        .loading-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.9);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-        
-        .spinner {
-            width: 60px;
-            height: 60px;
-            border: 5px solid rgba(255,255,255,0.3);
-            border-top: 5px solid var(--accent);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-bottom: 20px;
-        }
-        
-        .loading-text {
-            color: white;
-            font-size: 18px;
-            margin-top: 15px;
-            text-align: center;
-        }
-        
-        .loading-text::after {
-            content: "...";
-            animation: dots 1.5s infinite;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        @keyframes dots {
-            0%, 20% { content: "."; }
-            40% { content: ".."; }
-            60%, 100% { content: "..."; }
-        }
-        
-        /* Toast notification */
-        .toast {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(0,0,0,0.8);
-            color: white;
-            padding: 15px 25px;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            z-index: 1001;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            opacity: 0;
-            transition: 0.3s;
-        }
-        
-        .toast.show {
-            opacity: 1;
-        }
-        
-        .toast i {
-            font-size: 20px;
-            color: var(--accent);
-        }
-        
         /* New styles for the payment header */
         .payment-header {
-            font-size: 22px;
+            font-size: 18px;
             font-weight: bold;
             color: #148122;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             text-align: center;
             background-color: #e8f5e9;
-            padding: 15px;
+            padding: 12px;
             border-radius: 8px;
             border-left: 5px solid #148122;
+            line-height: 1.4;
         }
         
         .down-arrow {
             display: block;
-            font-size: 24px;
-            margin: 10px 0;
+            font-size: 20px;
+            margin: 8px 0;
             color: #148122;
         }
         
@@ -505,12 +437,16 @@
             }
             
             .phone-number {
-                font-size: 20px;
+                font-size: 18px;
             }
             
             .payment-header {
-                font-size: 18px;
-                padding: 12px;
+                font-size: 16px;
+                padding: 10px;
+            }
+            
+            .modal-content {
+                padding: 20px;
             }
         }
     </style>
@@ -523,11 +459,10 @@
         </div>
         <div class="payment-info">Affordable Internet Packages <i>(Available on all networks)</i></div>
         <div class="packages-container">
-            <button class="package-btn" onclick="showPaymentInstructions('1 Day - 2GB (Ksh 49)')">
-                <span>3 Day - 5GB</span>
+            <button class="package-btn" onclick="showPaymentInstructions('1 Day - 7GB (Ksh 59)')">
+                <span>1 Day - 7GB</span>
                 <span>Ksh 59</span>
             </button>
-        
             <button class="package-btn" onclick="showPaymentInstructions('3 Days - 5GB (Ksh 59)')">
                 <span>3 Days - 5GB</span>
                 <span>Ksh 59</span>
@@ -545,135 +480,138 @@
                 <span>Ksh 99</span>
             </button>
         </div>
-<div class="whatsapp-support">
-    <p>Need help with your purchase?</p>
-    <a href="https://wa.me/254763319254?text=Hi%2C%20I%20need%20help%20with%20my%20Starnet%20purchase" target="_blank" class="whatsapp-btn">
-        <i class="fab fa-whatsapp"></i> WhatsApp Support
-    </a>
-</div>
-
-    <!-- Payment Instructions Modal -->
-    <div id="paymentModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal()">&times;</span>
-            <h2>Payment Instructions</h2>
-            <p id="selectedPackage" style="font-weight: bold; color: var(--primary); text-align: center; margin-bottom: 15px;"></p>
-            <div class="instructions">
-                <div class="payment-header">
-                    GO TO MPESA ON YOUR PHONE AND BUY <span id="packageAmount"></span> AIRTIME TO THE PHONE NUMBER BELOW
-                    <div class="down-arrow">↓</div>
-                </div>
-                
-                <div class="phone-container">
-                    <div class="phone-label">M-Pesa Phone Number:</div>
-                    <div class="phone-number">
-                        <span id="phoneNumber">0702100570</span>
-                        <button class="copy-btn" onclick="copyPhoneNumber()">
-                            <i class="far fa-copy"></i> Copy
-                        </button>
-                    </div>
-                </div>
-                
-                <h3>Follow these 9 steps:</h3>
-                <ol>
-                    <li>Go to <strong>M-Pesa</strong> on your phone</li>
-                    <li>Select <strong>Buy Airtime</strong></li>
-                    <li>Choose <strong>Enter Phone Number</strong></li>
-                    <li>Enter Phone Number: <strong>0702100570</strong></li>
-                    <li>Input the exact amount for your package</li>
-                    <li>Enter your <strong>M-Pesa PIN</strong></li>
-                    <li>Confirm payment details and send</li>
-                    <li>Wait for confirmation SMS</li>
-                    <li>Your package activates within 5 minutes</li>
-                </ol>
-                
-                <p style="margin-top: 15px; font-style: italic; color: #666;">
-                    <i class="fas fa-info-circle" style="color: var(--primary);"></i> 
-                    If any issues occur, contact support with your payment confirmation message.
-                </p>
-            </div>
-            <button class="proceed-btn" onclick="closeModal()">
-                <i class="fas fa-check"></i> Understood
-            </button>
+        <div class="whatsapp-support">
+            <p>Need help with your purchase?</p>
+            <a href="https://wa.me/254763319254?text=Hi%2C%20I%20need%20help%20with%20my%20Starnet%20purchase" target="_blank" class="whatsapp-btn">
+                <i class="fab fa-whatsapp"></i> WhatsApp Support
+            </a>
         </div>
-    </div>
-    
-    <!-- Loading overlay -->
-    <div id="loadingOverlay" class="loading-overlay">
-        <div class="spinner"></div>
-        <div class="loading-text">Processing</div>
-    </div>
-    
-    <!-- Toast notification -->
-    <div id="toast" class="toast">
-        <i class="fas fa-check-circle"></i>
-        <span>Phone number copied to clipboard!</span>
-    </div>
 
-    <script>
-        // Show payment instructions modal
-        function showPaymentInstructions(packageName) {
-            const modal = document.getElementById('paymentModal');
-            const packageText = document.getElementById('selectedPackage');
-            const packageAmount = document.getElementById('packageAmount');
-            
-            // Extract amount from package name
-            const amountMatch = packageName.match(/Ksh (\d+)/);
-            if (amountMatch) {
-                packageAmount.textContent = 'Ksh ' + amountMatch[1];
-            }
-            
-            packageText.textContent = packageName;
-            modal.style.display = 'flex';
-            
-            // Reset animation
-            const modalContent = modal.querySelector('.modal-content');
-            modalContent.style.animation = 'none';
-            setTimeout(() => {
-                modalContent.style.animation = 'modalOpen 0.3s forwards';
-            }, 10);
-        }
+        <!-- Payment Instructions Modal -->
+        <div id="paymentModal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal" onclick="closeModal()">&times;</span>
+                <h2 style="font-size: 20px; margin-bottom: 10px;">Payment Instructions</h2>
+                <p id="selectedPackage" style="font-weight: bold; color: var(--primary); text-align: center; margin-bottom: 10px; font-size: 16px;"></p>
+                <div class="instructions">
+                    <div class="payment-header">
+                        GO TO MPESA ON YOUR PHONE AND BUY <span id="packageAmount"></span> AIRTIME TO THE PHONE NUMBER BELOW
+                        <div class="down-arrow">↓</div>
+                    </div>
+                    
+                    <div class="phone-container">
+                        <div class="phone-label">M-Pesa Phone Number:</div>
+                        <div class="phone-number">
+                            <span id="phoneNumber">0702100570</span>
+                            <button class="copy-btn" onclick="copyPhoneNumber()">
+                                <i class="far fa-copy"></i> Copy
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <h3>Follow these 9 steps:</h3>
+                    <ol>
+                        <li>Go to <strong>M-Pesa</strong> on your phone</li>
+                        <li>Select <strong>Buy Airtime</strong></li>
+                        <li>Choose <strong>Enter Phone Number</strong></li>
+                        <li>Enter Phone Number: <strong>0702100570</strong></li>
+                        <li>Input the exact amount for your package</li>
+                        <li>Enter your <strong>M-Pesa PIN</strong></li>
+                        <li>Confirm payment details and send</li>
+                        <li>Wait for confirmation SMS</li>
+                        <li>Your package activates within 5 minutes</li>
+                    </ol>
+                    
+                    <p style="margin-top: 10px; font-style: italic; color: #666; font-size: 13px;">
+                        <i class="fas fa-info-circle" style="color: var(--primary);"></i> 
+                        If any issues occur, contact support with your payment confirmation message.
+                    </p>
+                </div>
+                <button class="proceed-btn" onclick="closeModal()">
+                    <i class="fas fa-check"></i> Understood
+                </button>
+            </div>
+        </div>
         
-        // Close modal
-        function closeModal() {
-            document.getElementById('paymentModal').style.display = 'none';
-        }
+        <!-- Loading overlay -->
+        <div id="loadingOverlay" class="loading-overlay">
+            <div class="spinner"></div>
+            <div class="loading-text">Processing</div>
+        </div>
         
-        // Copy phone number to clipboard
-        function copyPhoneNumber() {
-            const phoneNumber = document.getElementById('phoneNumber').textContent;
-            navigator.clipboard.writeText(phoneNumber).then(() => {
-                showToast();
-            });
-        }
-        
-        // Show toast notification
-        function showToast() {
-            const toast = document.getElementById('toast');
-            toast.classList.add('show');
-            
-            setTimeout(() => {
-                toast.classList.remove('show');
-            }, 3000);
-        }
-        
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            if (event.target == document.getElementById('paymentModal')) {
-                closeModal();
-            }
-        }
-        
-        // Add animation to package buttons on page load
-        document.addEventListener('DOMContentLoaded', () => {
-            const buttons = document.querySelectorAll('.package-btn');
-            buttons.forEach((btn, index) => {
+        <!-- Toast notification -->
+        <div id="toast" class="toast">
+            <i class="fas fa-check-circle"></i>
+            <span>Phone number copied to clipboard!</span>
+        </div>
+
+        <script>
+            // Show payment instructions modal
+            function showPaymentInstructions(packageName) {
+                const modal = document.getElementById('paymentModal');
+                const packageText = document.getElementById('selectedPackage');
+                const packageAmount = document.getElementById('packageAmount');
+                
+                // Extract amount from package name
+                const amountMatch = packageName.match(/Ksh (\d+)/);
+                if (amountMatch) {
+                    packageAmount.textContent = 'Ksh ' + amountMatch[1];
+                }
+                
+                packageText.textContent = packageName;
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+                
+                // Reset animation
+                const modalContent = modal.querySelector('.modal-content');
+                modalContent.style.animation = 'none';
                 setTimeout(() => {
-                    btn.style.opacity = '1';
-                    btn.style.transform = 'translateY(0)';
-                }, index * 100);
+                    modalContent.style.animation = 'modalOpen 0.3s forwards';
+                }, 10);
+            }
+            
+            // Close modal
+            function closeModal() {
+                document.getElementById('paymentModal').style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+            
+            // Copy phone number to clipboard
+            function copyPhoneNumber() {
+                const phoneNumber = document.getElementById('phoneNumber').textContent;
+                navigator.clipboard.writeText(phoneNumber).then(() => {
+                    showToast();
+                });
+            }
+            
+            // Show toast notification
+            function showToast() {
+                const toast = document.getElementById('toast');
+                toast.classList.add('show');
+                
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 3000);
+            }
+            
+            // Close modal when clicking outside
+            window.onclick = function(event) {
+                if (event.target == document.getElementById('paymentModal')) {
+                    closeModal();
+                }
+            }
+            
+            // Add animation to package buttons on page load
+            document.addEventListener('DOMContentLoaded', () => {
+                const buttons = document.querySelectorAll('.package-btn');
+                buttons.forEach((btn, index) => {
+                    setTimeout(() => {
+                        btn.style.opacity = '1';
+                        btn.style.transform = 'translateY(0)';
+                    }, index * 100);
+                });
             });
-        });
-    </script>
+        </script>
+    </div>
 </body>
 </html>
