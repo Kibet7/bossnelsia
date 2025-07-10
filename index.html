@@ -465,6 +465,26 @@
             color: var(--accent);
         }
         
+        /* New styles for the payment header */
+        .payment-header {
+            font-size: 22px;
+            font-weight: bold;
+            color: #148122;
+            margin-bottom: 15px;
+            text-align: center;
+            background-color: #e8f5e9;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #148122;
+        }
+        
+        .down-arrow {
+            display: block;
+            font-size: 24px;
+            margin: 10px 0;
+            color: #148122;
+        }
+        
         /* Responsive adjustments */
         @media (max-width: 480px) {
             .container {
@@ -486,6 +506,11 @@
             
             .phone-number {
                 font-size: 20px;
+            }
+            
+            .payment-header {
+                font-size: 18px;
+                padding: 12px;
             }
         }
     </style>
@@ -534,7 +559,10 @@
             <h2>Payment Instructions</h2>
             <p id="selectedPackage" style="font-weight: bold; color: var(--primary); text-align: center; margin-bottom: 15px;"></p>
             <div class="instructions">
-                <h3>How to pay via M-Pesa</h3>
+                <div class="payment-header">
+                    GO TO MPESA ON YOUR PHONE AND BUY <span id="packageAmount"></span> AIRTIME TO THE PHONE NUMBER BELOW
+                    <div class="down-arrow">↓</div>
+                </div>
                 
                 <div class="phone-container">
                     <div class="phone-label">M-Pesa Phone Number:</div>
@@ -546,6 +574,7 @@
                     </div>
                 </div>
                 
+                <h3>Follow these 9 steps:</h3>
                 <ol>
                     <li>Go to <strong>M-Pesa</strong> on your phone</li>
                     <li>Select <strong>Buy Airtime</strong></li>
@@ -585,7 +614,16 @@
         // Show payment instructions modal
         function showPaymentInstructions(packageName) {
             const modal = document.getElementById('paymentModal');
-            document.getElementById('selectedPackage').textContent = packageName;
+            const packageText = document.getElementById('selectedPackage');
+            const packageAmount = document.getElementById('packageAmount');
+            
+            // Extract amount from package name
+            const amountMatch = packageName.match(/Ksh (\d+)/);
+            if (amountMatch) {
+                packageAmount.textContent = 'Ksh ' + amountMatch[1];
+            }
+            
+            packageText.textContent = packageName;
             modal.style.display = 'flex';
             
             // Reset animation
